@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000 ; 
+  --color-secondary : #0a0a0a ;
+}
+
+body {
+  background: linear-gradient(135deg, 
+    rgb(5, 5, 10) 0%, 
+    rgb(6, 7, 11) 3%, 
+    rgb(8, 9, 13) 6%, 
+    rgb(9, 10, 14) 9%, 
+    rgb(11, 12, 16) 12%, 
+    rgb(13, 14, 17) 15%, 
+    rgb(14, 15, 19) 18%, 
+    rgb(16, 17, 20) 21%, 
+    rgb(17, 18, 22) 24%, 
+    rgb(19, 20, 23) 27%, 
+    rgb(21, 22, 25) 30%, 
+    rgb(22, 23, 26) 33%, 
+    rgb(24, 25, 28) 36%, 
+    rgb(25, 26, 29) 39%, 
+    rgb(27, 28, 31) 42%, 
+    rgb(28, 29, 32) 45%, 
+    rgb(30, 31, 34) 48%, 
+    rgb(31, 32, 35) 51%, 
+    rgb(32, 33, 37) 54%, 
+    rgb(34, 35, 38) 57%, 
+    rgb(35, 36, 39) 60%, 
+    rgb(36, 37, 41) 63%, 
+    rgb(38, 39, 42) 66%, 
+    rgb(39, 40, 43) 69%, 
+    rgb(40, 41, 44) 72%, 
+    rgb(41, 42, 46) 75%, 
+    rgb(42, 43, 47) 78%, 
+    rgb(43, 44, 48) 81%, 
+    rgb(44, 45, 49) 84%, 
+    rgb(45, 46, 50) 87%, 
+    rgb(46, 47, 51) 90%, 
+    rgb(47, 48, 52) 93%, 
+    rgb(48, 48, 53) 97%, 
+    rgb(48, 49, 53) 100%
+  );
+}
+
+.bg-grass {
+ background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
