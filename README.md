@@ -3,7 +3,7 @@
 Ứng dụng chứng thực người dùng bằng GitHub OAuth sử dụng **Passport.js**, **Express.js**, **MongoDB**, và giao diện React.
 
 ## 🚀 Demo
-> (Tuỳ chọn) Bạn có thể thêm link demo nếu có deploy trên Vercel/Render.
+> https://github-passport.onrender.com/
 
 ## 🧰 Công nghệ sử dụng
 
