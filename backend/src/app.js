@@ -5,6 +5,8 @@ const cors = require('cors')
 const passport = require('passport') ; 
 require('./passport/github.auth') ; 
 
+//path 
+const path = require('path') ; 
 //Database 
 const getConnectDB = require('@configs/database') ; 
 getConnectDB() ; 
@@ -34,5 +36,13 @@ app.use("/api/user" , userRoutes) ;
 app.use("/api/explore" , exploreRoutes) ; 
 app.use("/api/auth" , authRoutes) ; 
 
+const distPath = path.resolve(__dirname, '../../frontend/dist');
+app.use(express.static(path.join(distPath))) ; 
+
+app.get("/*splat", (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 app.use(errorHandler) ;
+
 module.exports = app ; 
