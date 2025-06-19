@@ -20,7 +20,7 @@ const ExplorePage = () => {
         setRepos([]);
         try {
 
-            const res = await fetch(`http://localhost:5001/api/explore/repos/${language}`)
+            const res = await fetch(`/api/explore/repos/${language}`)
             const json = await res.json(); //res là đối tượng response chưa được giải dùng .json giải trả về promise
             const items = json.data;
             setRepos(items);
