@@ -14,7 +14,6 @@ const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState(false);
 
-    if (loading) return null;
     const getUserProfileAndRepos = useCallback(async (username = authUser.username) => {
         setLoading(true);
         try {
@@ -43,7 +42,7 @@ const HomePage = () => {
     }, [getUserProfileAndRepos])
 
 
-    const onSearch = async (e, username) => {
+    const onSearch = async (e, username = authUser.username) => {
         e.preventDefault();
         setLoading(true);
         setRepos([]);
@@ -70,6 +69,7 @@ const HomePage = () => {
         setSortType(sortType);
         setRepos([...repos]);
     }
+
     return (
         <div className="m-4">
             <Search onSearch={onSearch} />
