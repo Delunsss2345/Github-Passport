@@ -29,8 +29,10 @@ const HomePage = () => {
             return { userProfile, repos };
         }
         catch (error) {
-            toast.error('Failed to fetch User profile and repository ', error)
+            toast.error(`Failed to fetch user profile and repositories: ${error.message}`);
+            console.error(error);
         }
+
         finally {
             setLoading(false);
         }
