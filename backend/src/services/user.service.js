@@ -9,7 +9,12 @@ const getUserProfileAndRepos = async (username) => {
         }
     );
     const userProfile = await userRes.json();
-    const repoRes = await fetch(userProfile.repos_url);
+    const repoRes = await fetch(userProfile.repos_url, {
+        headers: {
+            Authorization: `token ${process.env.GITHUB_TOKEN}`
+        }
+    });
+
     const repos = await repoRes.json();
     return {userProfile , repos} ; 
 }
