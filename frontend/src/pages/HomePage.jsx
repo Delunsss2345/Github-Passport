@@ -20,7 +20,7 @@ const HomePage = () => {
             const res = await fetch(`/api/user/profile/${username}`)
             const json = await res.json();
             const { userProfile, repos } = json.data;
-
+            console.log(userProfile);
             setUserProfile(userProfile);
 
             repos.sort((a, b) => new Date(b.create_at) - new Date(a.create_at));
@@ -29,7 +29,7 @@ const HomePage = () => {
             return { userProfile, repos };
         }
         catch (error) {
-            toast.error('Failed to fetch User profile and repository')
+            toast.error('Failed to fetch User profile and repository ', error)
         }
         finally {
             setLoading(false);
@@ -42,13 +42,14 @@ const HomePage = () => {
     }, [getUserProfileAndRepos])
 
 
-    const onSearch = async (e, username = authUser.username) => {
+    const onSearch = async (e, username) => {
         e.preventDefault();
         setLoading(true);
         setRepos([]);
         setUserProfile(null);
 
         const { userProfile, repos } = await getUserProfileAndRepos(username);
+
         if (!userProfile) return;
         setUserProfile(userProfile);
         setRepos(repos);
