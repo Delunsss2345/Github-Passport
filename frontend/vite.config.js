@@ -15,12 +15,16 @@ export default defineConfig({
         '@providers': path.resolve(__dirname, 'src/providers')
       }
   },
+   build: {
+    outDir: '../backend/dist', 
+    emptyOutDir: true,   
+  },
   server : {
-    port : 3000,
-    proxy: {
-      "/api" : {
-        target:"http://localhost:5001" , 
-      }
-    } 
+    port : 3000
+    // proxy: {
+    //   "/api" : {
+    //     target:"http://localhost:5001" , 
+    //   }
+    // } 
   }
 })

@@ -25,10 +25,7 @@ app.use(express.json()) ;
 app.use(session({secret: 'keyB0or ca' , resave: false , saveUninitialized : false})) ; 
 app.use(passport.initialize()) ;
 app.use(passport.session()) ; 
-app.use(cors({
-    origin : "http://localhost:3000"
-}
-)) 
+app.use(cors()) ; 
 
 app.use(responseEnhancer) ;
 
@@ -36,9 +33,10 @@ app.use("/api/user" , userRoutes) ;
 app.use("/api/explore" , exploreRoutes) ; 
 app.use("/api/auth" , authRoutes) ; 
 
-const distPath = path.resolve(__dirname, '../../frontend/dist');
-app.use(express.static(path.join(distPath))) ; 
+const distPath = path.resolve(__dirname, '..', 'dist');
 
+
+app.use(express.static(distPath));
 app.get("/*splat", (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
